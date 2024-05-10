@@ -25,7 +25,11 @@ public class Dev {
         }
     }
 
-    public void calcularTotalXp() {}
+    public double calcularTotalXp() {
+        return conteudosConcluidos.stream()
+                .mapToDouble(Conteudo::calcularXp)
+                .sum();
+    }
 
     public String getNome() {
         return nome;
