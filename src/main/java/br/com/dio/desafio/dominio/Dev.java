@@ -14,7 +14,16 @@ public class Dev {
         bootcamp.getDevsInscritos().add(this);
     }
 
-    public void progredir() {}
+    public void progredir() {
+        var conteudoBuscado = this.conteudosInscritos.stream().findFirst();
+        if (conteudoBuscado.isPresent()) {
+            var conteudo = conteudoBuscado.get();
+            this.conteudosConcluidos.add(conteudo);
+            this.conteudosInscritos.remove(conteudo);
+        } else {
+            System.err.println("Você não está inscrito em nenhum conteúdo!");
+        }
+    }
 
     public void calcularTotalXp() {}
 
